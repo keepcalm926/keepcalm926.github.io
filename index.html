@@ -64,6 +64,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-gmpy2库" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/16/gmpy2%E5%BA%93/" class="article-date">
+  <time datetime="2020-11-16T15:03:29.149Z" itemprop="datePublished">2020-11-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="gmpy2���һЩ�÷�"><a href="#gmpy2���һЩ�÷�" class="headerlink" title="gmpy2���һЩ�÷�"></a>gmpy2���һЩ�÷�</h1><h2 id="gmpy2���һЩ���u���"><a href="#gmpy2���һЩ���u���" class="headerlink" title="gmpy2���һЩ���ú���"></a>gmpy2���һЩ���ú���</h2><ol>
+<li>gmpy2.mpz(n)#��ʼ��һ��������</li>
+<li>gmpy2.mpfr(x)# ��ʼ��һ���߾��ȸ�����x</li>
+<li>d = gmpy2.invert(e,n) # ����Ԫ��de = 1 mod n</li>
+<li>C = gmpy2.powmod(M,e,n)# ��ȡģ������� C = (M^e) mod n</li>
+<li>gmpy2.is_prime(n) #���Լ��</li>
+<li>gmpy2.gcd(a,b)  #ŷ������㷨�����Լ��</li>
+<li>gmpy2.gcdext(a,b)  #��չŷ������㷨</li>
+<li>gmpy2.iroot(x,n) #x��n�θ�<h2 id="�����Ϻ���������ϸ˵��"><a href="#�����Ϻ���������ϸ˵��" class="headerlink" title="�����Ϻ���������ϸ˵��"></a>�����Ϻ���������ϸ˵��</h2><h3 id="gmpy2-invert-e-n-��ףԸ���ҵg��ֶ���ͷ����"><a href="#gmpy2-invert-e-n-��ףԸ���ҵg��ֶ���ͷ����" class="headerlink" title="gmpy2.invert(e, n)��ףԸ���ҵģ��ֶ���ͷ����"></a>gmpy2.invert(e, n)��ףԸ���ҵģ��ֶ���ͷ����</h3></li>
+<li><strong>��ѧ��ϵʽ��de = 1 (mod n)</strong> #�м�ĵȺ�Ӧ�����������ߣ������</li>
+</ol>
+<h4 id="ʲo������Ԫ"><a href="#ʲo������Ԫ" class="headerlink" title="ʲô������Ԫ"></a>ʲô������Ԫ</h4><ol>
+<li>��d * e�Ļ�����n�����������1.</li>
+<li>eg����5��ģ7�� <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import gmpy2 </span><br><span class="line">x &#x3D; gmpy2.invert(5, 7) </span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
+<h3 id="c-gmpy2-powmod-M-e-n"><a href="#c-gmpy2-powmod-M-e-n" class="headerlink" title="c = gmpy2.powmod(M, e, n)"></a>c = gmpy2.powmod(M, e, n)</h3></li>
+<li><strong>��ѧ��ϵʽ��c = (M ^ e) mod n</strong> #c����m��e�η�����n������</li>
+<li>���������python�е�pow�����ǲ��ģ���pow����������������x��y��zʱ������ֵΪ(x ^ y) % z<h2 id="Lj�׶���oʹ����������"><a href="#Lj�׶���oʹ����������" class="headerlink" title="Ŀǰ�׶���ôʹ����������"></a>Ŀǰ�׶���ôʹ����������</h2></li>
+<li>����CRY�е���Ŀ�����RSA����ʱ��Ҫ�����ֵ��ʱ����Ҫʹ��<h3 id="��RSA�����е�cʱ"><a href="#��RSA�����е�cʱ" class="headerlink" title="��RSA�����е�cʱ"></a>��RSA�����е�cʱ</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">d &#x3D; gmpy2.invert(e, n)</span><br><span class="line">c &#x3D; gmpy2.powmod(m, e, n)</span><br><span class="line">c &#x3D; pow(m, e, n)</span><br><span class="line">, &#x3D; gmpy2.powmod(c, d, n)</span><br><span class="line">m &#x3D; pow(c, d, n)</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/16/gmpy2%E5%BA%93/" data-id="ckhkoimjj0000istk788hh0y1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-pyc" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/14/pyc/" class="article-date">
@@ -257,6 +302,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/11/16/gmpy2%E5%BA%93/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2020/11/14/pyc/">Sat Nov 14 2020 00:00:00 GMT+0800 (中国标准时间)</a>
