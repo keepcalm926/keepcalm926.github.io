@@ -74,28 +74,45 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/16/gmpy2%E5%BA%93/">gmpy2</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="gmpy2���һЩ�÷�"><a href="#gmpy2���һЩ�÷�" class="headerlink" title="gmpy2���һЩ�÷�"></a>gmpy2���һЩ�÷�</h1><h2 id="gmpy2���һЩ���u���"><a href="#gmpy2���һЩ���u���" class="headerlink" title="gmpy2���һЩ���ú���"></a>gmpy2���һЩ���ú���</h2><ol>
-<li>gmpy2.mpz(n)#��ʼ��һ��������</li>
-<li>gmpy2.mpfr(x)# ��ʼ��һ���߾��ȸ�����x</li>
-<li>d = gmpy2.invert(e,n) # ����Ԫ��de = 1 mod n</li>
-<li>C = gmpy2.powmod(M,e,n)# ��ȡģ������� C = (M^e) mod n</li>
-<li>gmpy2.is_prime(n) #���Լ��</li>
-<li>gmpy2.gcd(a,b)  #ŷ������㷨�����Լ��</li>
-<li>gmpy2.gcdext(a,b)  #��չŷ������㷨</li>
-<li>gmpy2.iroot(x,n) #x��n�θ�<h2 id="�����Ϻ���������ϸ˵��"><a href="#�����Ϻ���������ϸ˵��" class="headerlink" title="�����Ϻ���������ϸ˵��"></a>�����Ϻ���������ϸ˵��</h2><h3 id="gmpy2-invert-e-n-��ףԸ���ҵg��ֶ���ͷ����"><a href="#gmpy2-invert-e-n-��ףԸ���ҵg��ֶ���ͷ����" class="headerlink" title="gmpy2.invert(e, n)��ףԸ���ҵģ��ֶ���ͷ����"></a>gmpy2.invert(e, n)��ףԸ���ҵģ��ֶ���ͷ����</h3></li>
-<li><strong>��ѧ��ϵʽ��de = 1 (mod n)</strong> #�м�ĵȺ�Ӧ�����������ߣ������</li>
+        <h1 id="gmpy2库的一些用法"><a href="#gmpy2库的一些用法" class="headerlink" title="gmpy2库的一些用法"></a>gmpy2库的一些用法</h1><h2 id="gmpy2库的一些常用函数"><a href="#gmpy2库的一些常用函数" class="headerlink" title="gmpy2库的一些常用函数"></a>gmpy2库的一些常用函数</h2><ol>
+<li>gmpy2.mpz(n)#初始化一个大整数</li>
+<li>gmpy2.mpfr(x)# 初始化一个高精度浮点数x</li>
+<li>d = gmpy2.invert(e,n) # 求逆元，de = 1 mod n</li>
+<li>C = gmpy2.powmod(M,e,n)# 幂取模，结果是 C = (M^e) mod n</li>
+<li>gmpy2.is_prime(n) #素性检测</li>
+<li>gmpy2.gcd(a,b)  #欧几里得算法，最大公约数</li>
+<li>gmpy2.gcdext(a,b)  #扩展欧几里得算法</li>
+<li>gmpy2.iroot(x,n) #x开n次根</li>
 </ol>
-<h4 id="ʲo������Ԫ"><a href="#ʲo������Ԫ" class="headerlink" title="ʲô������Ԫ"></a>ʲô������Ԫ</h4><ol>
-<li>��d * e�Ļ�����n�����������1.</li>
-<li>eg����5��ģ7�� <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import gmpy2 </span><br><span class="line">x &#x3D; gmpy2.invert(5, 7) </span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
-<h3 id="c-gmpy2-powmod-M-e-n"><a href="#c-gmpy2-powmod-M-e-n" class="headerlink" title="c = gmpy2.powmod(M, e, n)"></a>c = gmpy2.powmod(M, e, n)</h3></li>
-<li><strong>��ѧ��ϵʽ��c = (M ^ e) mod n</strong> #c����m��e�η�����n������</li>
-<li>���������python�е�pow�����ǲ��ģ���pow����������������x��y��zʱ������ֵΪ(x ^ y) % z<h2 id="Lj�׶���oʹ����������"><a href="#Lj�׶���oʹ����������" class="headerlink" title="Ŀǰ�׶���ôʹ����������"></a>Ŀǰ�׶���ôʹ����������</h2></li>
-<li>����CRY�е���Ŀ�����RSA����ʱ��Ҫ�����ֵ��ʱ����Ҫʹ��<h3 id="��RSA�����е�cʱ"><a href="#��RSA�����е�cʱ" class="headerlink" title="��RSA�����е�cʱ"></a>��RSA�����е�cʱ</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">d &#x3D; gmpy2.invert(e, n)</span><br><span class="line">c &#x3D; gmpy2.powmod(m, e, n)</span><br><span class="line">c &#x3D; pow(m, e, n)</span><br><span class="line">, &#x3D; gmpy2.powmod(c, d, n)</span><br><span class="line">m &#x3D; pow(c, d, n)</span><br></pre></td></tr></table></figure></li>
+<h2 id="对以上函数进行详细说明"><a href="#对以上函数进行详细说明" class="headerlink" title="对以上函数进行详细说明"></a>对以上函数进行详细说明</h2><h3 id="gmpy2-invert-e-n-（祝愿教我的（手动狗头））"><a href="#gmpy2-invert-e-n-（祝愿教我的（手动狗头））" class="headerlink" title="gmpy2.invert(e, n)（祝愿教我的（手动狗头））"></a>gmpy2.invert(e, n)（祝愿教我的（手动狗头））</h3><ol>
+<li><strong>数学关系式：de = 1 (mod n)</strong> #中间的等号应该是三个横线（不会打）</li>
 </ol>
+<h4 id="什么是求逆元"><a href="#什么是求逆元" class="headerlink" title="什么是求逆元"></a>什么是求逆元</h4><ol>
+<li>即d * e的积除以n的余数恒等于1.</li>
+<li>eg：求5的模7逆 </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import gmpy2 </span><br><span class="line">x &#x3D; gmpy2.invert(5, 7) </span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
 
+<h3 id="c-gmpy2-powmod-M-e-n"><a href="#c-gmpy2-powmod-M-e-n" class="headerlink" title="c = gmpy2.powmod(M, e, n)"></a>c = gmpy2.powmod(M, e, n)</h3><ol>
+<li><strong>数学关系式：c = (M ^ e) mod n</strong> #c就是m的e次方除以n的余数</li>
+<li>这个函数和python中的pow函数是差不多的，当pow函数有三个参数是x，y，z时，最后的值为(x ^ y) % z</li>
+</ol>
+<h2 id="目前阶段怎么使用上述函数"><a href="#目前阶段怎么使用上述函数" class="headerlink" title="目前阶段怎么使用上述函数"></a>目前阶段怎么使用上述函数</h2><ol>
+<li>对于CRY中的题目，求解RSA密码时候要求相关值的时候需要使用</li>
+</ol>
+<h3 id="求RSA密码时"><a href="#求RSA密码时" class="headerlink" title="求RSA密码时"></a>求RSA密码时</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">d &#x3D; gmpy2.invert(e, n)</span><br><span class="line">c &#x3D; gmpy2.powmod(m, e, n)</span><br><span class="line">c &#x3D; pow(m, e, n)</span><br><span class="line">m &#x3D; gmpy2.powmod(c, d, n)</span><br><span class="line">m &#x3D; pow(c, d, n)</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
@@ -304,7 +321,7 @@
       <ul>
         
           <li>
-            <a href="/2020/11/16/gmpy2%E5%BA%93/">(no title)</a>
+            <a href="/2020/11/16/gmpy2%E5%BA%93/">gmpy2</a>
           </li>
         
           <li>
