@@ -15,7 +15,7 @@
 <meta property="og:description" content="gmpy2库的一些用法gmpy2库的一些常用函数 gmpy2.mpz(n)#初始化一个大整数 gmpy2.mpfr(x)# 初始化一个高精度浮点数x d &#x3D; gmpy2.invert(e,n) # 求逆元，de &#x3D; 1 mod n C &#x3D; gmpy2.powmod(M,e,n)# 幂取模，结果是 C &#x3D; (M^e) mod n gmpy2.is_prime(n) #素性检测 gmpy2.gcd(a">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-16T15:03:29.149Z">
-<meta property="article:modified_time" content="2020-11-16T15:11:55.584Z">
+<meta property="article:modified_time" content="2020-11-17T09:44:25.735Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -114,7 +114,7 @@
 <h2 id="目前阶段怎么使用上述函数"><a href="#目前阶段怎么使用上述函数" class="headerlink" title="目前阶段怎么使用上述函数"></a>目前阶段怎么使用上述函数</h2><ol>
 <li>对于CRY中的题目，求解RSA密码时候要求相关值的时候需要使用</li>
 </ol>
-<h3 id="求RSA密码时"><a href="#求RSA密码时" class="headerlink" title="求RSA密码时"></a>求RSA密码时</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">d &#x3D; gmpy2.invert(e, n)</span><br><span class="line">c &#x3D; gmpy2.powmod(m, e, n)</span><br><span class="line">c &#x3D; pow(m, e, n)</span><br><span class="line">m &#x3D; gmpy2.powmod(c, d, n)</span><br><span class="line">m &#x3D; pow(c, d, n)</span><br></pre></td></tr></table></figure>
+<h3 id="求RSA密码时"><a href="#求RSA密码时" class="headerlink" title="求RSA密码时"></a>求RSA密码时</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">d &#x3D; gmpy2.invert(e, (p - 1) * (q - 1))</span><br><span class="line">c &#x3D; gmpy2.powmod(m, e, n)</span><br><span class="line">c &#x3D; pow(m, e, n)</span><br><span class="line">m &#x3D; gmpy2.powmod(c, d, n)</span><br><span class="line">m &#x3D; pow(c, d, n)</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
