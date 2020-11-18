@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Affine | 肖雄自己的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Affine(XCTF CRY fanfie)Affine的加密解密的数学原理加密函数 E(x) &#x3D; (ax + b)(mod m), 其中a与m是互质，m是编码系统中字母个数（一般都是26，XCTF中fanfie题就是32）  解密函数 D(x) &#x3D; q（a乘法逆元）(x - b)(mod m)1q &#x3D; gmpy.invert(a, m)    XCTF CRY fanfile求解方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Affine">
+<meta property="og:url" content="http://example.com/2020/11/18/Affine/index.html">
+<meta property="og:site_name" content="肖雄自己的博客">
+<meta property="og:description" content="Affine(XCTF CRY fanfie)Affine的加密解密的数学原理加密函数 E(x) &#x3D; (ax + b)(mod m), 其中a与m是互质，m是编码系统中字母个数（一般都是26，XCTF中fanfie题就是32）  解密函数 D(x) &#x3D; q（a乘法逆元）(x - b)(mod m)1q &#x3D; gmpy.invert(a, m)    XCTF CRY fanfile求解方法">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-18T09:18:42.103Z">
+<meta property="article:modified_time" content="2020-11-18T09:20:25.076Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="肖雄自己的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">肖雄自己的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Affine" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/18/Affine/" class="article-date">
+  <time datetime="2020-11-18T09:18:42.103Z" itemprop="datePublished">2020-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Affine
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Affine-XCTF-CRY-fanfie"><a href="#Affine-XCTF-CRY-fanfie" class="headerlink" title="Affine(XCTF CRY fanfie)"></a>Affine(XCTF CRY fanfie)</h1><h2 id="Affine的加密解密的数学原理"><a href="#Affine的加密解密的数学原理" class="headerlink" title="Affine的加密解密的数学原理"></a>Affine的加密解密的数学原理</h2><h3 id="加密函数"><a href="#加密函数" class="headerlink" title="加密函数"></a>加密函数</h3><ol>
+<li><strong>E(x) = (ax + b)(mod m)</strong>, 其中a与m是互质，m是编码系统中字母个数（一般都是26，XCTF中fanfie题就是32）</li>
+</ol>
+<h3 id="解密函数"><a href="#解密函数" class="headerlink" title="解密函数"></a>解密函数</h3><ol>
+<li><strong>D(x) = q（a乘法逆元）(x - b)(mod m)</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q &#x3D; gmpy.invert(a, m)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="XCTF-CRY-fanfile求解方法"><a href="#XCTF-CRY-fanfile求解方法" class="headerlink" title="XCTF CRY fanfile求解方法"></a>XCTF CRY fanfile求解方法</h2><h3 id="先贴python代码脚本"><a href="#先贴python代码脚本" class="headerlink" title="先贴python代码脚本"></a>先贴python代码脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#仿射加密解密（求加密过程的a，b）数学表达式：x &#x3D;（ax + b）mod (m)</span><br><span class="line">#先要弄清楚m是多少，并且a与m是互质的</span><br><span class="line">#m的值就是例如只有字母表就是26个，如果出现最大数字是7，那么就是26+ 6</span><br><span class="line">#数字是从2开始的</span><br><span class="line">import gmpy2</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">m &#x3D; 32 #出现最大的数字是7</span><br><span class="line">a &#x3D; 13</span><br><span class="line">b &#x3D; 4</span><br><span class="line">n &#x3D; gmpy2.invert(13, 32)</span><br><span class="line">s &#x3D; &#39;MZYVMIWLGBL7CIJOGJQVOA3IN5BLYC3NHI&#39;</span><br><span class="line">l &#x3D; len(s)</span><br><span class="line">for i in range(l):</span><br><span class="line">    if (ord(s[i]) &gt;&#x3D; 65):</span><br><span class="line">        cipher &#x3D; n * (ord(s[i]) - 65 - b) % m </span><br><span class="line">        if (cipher &lt;&#x3D; 25):</span><br><span class="line">            res &#x3D; chr(cipher + 65)</span><br><span class="line">        else:</span><br><span class="line">            res &#x3D; chr(cipher + 24)</span><br><span class="line">    else:</span><br><span class="line">        cipher &#x3D; n * (ord(s[i]) - 24 - b) % m</span><br><span class="line">        if(cipher &lt;&#x3D; 25):</span><br><span class="line">            res &#x3D; chr(cipher + 65)</span><br><span class="line">        else:</span><br><span class="line">            res &#x3D; chr(cipher + 24)</span><br><span class="line">    print(res, end&#x3D;&#39;&#39;)</span><br><span class="line">#用CaptfEncoder的base32解密</span><br></pre></td></tr></table></figure>
+
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
+<li>本题来自的赛事是BITSCTF ，先对该字符串进行base32加密 ，得到<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IJEVU2DKRA&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure></li>
+<li>发现两个M都是对应的I找到线索后。因为是base32编码，那么对A-Z、2-7进行编码：<br>A = 0 …… Z = 25  2 = 26……7 = 31</li>
+<li>可以手动计算a、b的值（太弱了），解得a = 13， b = 4</li>
+<li>通过gmpy2.invert（13， 31）可以得到a的乘法逆元</li>
+<li>脚本跑出来的字符串再用CaptfEncoder工具进行base32解码，最后得到flag </li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>如果直接告诉了a和b的值，可以直接使用CaptfEncoder工具进行解密，十分方便。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/18/Affine/" data-id="ckhn73vox0000hgtk6jhlaowr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/16/gmpy2%E5%BA%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">gmpy2</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/18/Affine/">Affine</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/16/gmpy2%E5%BA%93/">gmpy2</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/14/pyc/">pyc</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/13/RSA%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/">RSA求解</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/13/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
