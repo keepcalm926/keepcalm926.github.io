@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://example.com/2020/11/25/base64%E9%9A%90%E5%86%99/20180917030350894.png">
 <meta property="og:image" content="http://example.com/2020/11/25/base64%E9%9A%90%E5%86%99/20180917030415646.png">
 <meta property="article:published_time" content="2020-11-25T15:06:55.092Z">
-<meta property="article:modified_time" content="2020-11-25T16:08:45.486Z">
+<meta property="article:modified_time" content="2020-11-25T16:11:52.076Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2020/11/25/base64%E9%9A%90%E5%86%99/20180917030316045.png">
@@ -97,7 +97,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b64chars &#x3D; &#39;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+&#x2F;&#39;</span><br></pre></td></tr></table></figure>
 <img src="/2020/11/25/base64%E9%9A%90%E5%86%99/20180917030316045.png" class="" width="123">
 <p>64个字符需要6位二进制来表示，表示成数值0~63<br>这样，长度为3个字节的数据经过base64编码后就会变成4个字节</p>
-<h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><img src="/2020/11/25/base64%E9%9A%90%E5%86%99/20180917030331547.png" class="" width="123">
+<h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><img src="/2020/11/25/base64%E9%9A%90%E5%86%99/20180917030331547.png" class="" title="content &#x3D; width &#x3D; 375">
 <p>如上图，字符串“Tr0”经过编码后变为了“VHIw”<br>正常的字符串都是用八位二进制数来表示的，3 * 8 = 24， 而base64编码每个字符都是用六位二进制数来表示的 4 *  6  = 24， 故上图中的三位字符的字符串编码后恰好被4位字符代替<br>如果明文字节数不是3的倍数，那么其对应的二进制数的位数也不是6的倍数，就不能精确地划分成6位的块<br>此时则需要在原数据二进制值得后面添0，使其二进制位数是6的倍数<br>然后，在编码后的字符串后面添加1个或者2个等号“=”，表示所添加的零值字节数<br>比如</p>
 <img src="/2020/11/25/base64%E9%9A%90%E5%86%99/20180917030350894.png" class="" width="123">
 <p>橙色底纹就是添加的0<br>这就是base64编码的方式</p>
